@@ -1,0 +1,106 @@
+/* $Id: internet_services_2.css,v 1.1.2.7 2008/06/16 04:38:02 hswong3i Exp $ */
+
+/**
+ * Generic elements
+ */
+body {
+  color: #444;
+}
+
+/**
+ * Layout
+ */
+/* With 3 columns, require a minimum width of 1280px to ensure there is enough horizontal space. */
+body.two-sidebars {
+  min-width: 1240px;
+}
+/* With 2 columns, require a minimum width of 1020px. */
+body.no-sidebars,
+body.sidebar-left,
+body.sidebar-right {
+  min-width: 980px;
+}
+/* So we move the #center container over the sidebars to compensate */
+body.sidebar-left #center {
+  margin-left: -340px;
+}
+body.sidebar-right #center {
+  margin-right: -340px;
+}
+body.two-sidebars #center {
+  margin: 0 -340px;
+}
+/* And add blanks left and right for the sidebars to fill */
+body.sidebar-left #squeeze {
+  margin-left: 340px;
+}
+body.sidebar-right #squeeze {
+  margin-right: 340px;
+}
+body.two-sidebars #squeeze {
+  margin: 0 340px;
+}
+/* We ensure the sidebars are still clickable using z-index */
+#wrapper #container .sidebar {
+  width: 340px;
+}
+#sidebar-left .block {
+  padding-right: 6px;
+}
+#sidebar-right .block {
+  padding-left: 6px;
+}
+#sidebar-left .block-region {
+  margin-right: 6px;
+}
+#sidebar-right .block-region {
+  margin-left: 6px;
+}
+/* Now we add the backgrounds for the main content shading */
+#center .block h2,
+.sidebar .block h2 {
+  height: 29px;
+  line-height: 29px;
+}
+#center .block h2 {
+  color: #444;
+  background: #E8E8E8 url(../images/h2bg.gif) no-repeat center left; /* LTR */
+  font-size: 1.4em;
+  padding: 0 0 0 43px; /* LTR */
+}
+.sidebar .block h2 {
+  background: #BDBDBD url(../images/h3bg.gif) no-repeat center right; /* LTR */
+  padding: 0 0 0 5px; /* LTR */
+}
+
+/**
+ * Header
+ */
+#wrapper #container #header {
+  background: #FFF url(../images/headerbg.gif) repeat-x bottom;
+  border: none;
+}
+#wrapper #container #header #slogan-floater h1.site-name {
+  font-size: 2.4em;
+}
+
+/**
+ * Primary navigation
+ */
+#primary-links {
+  background: #FF9148 url(../images/menubg.gif) repeat-x;
+}
+ul.primary-links li a:hover {
+  color: #FFF;
+}
+ul.primary-links li a.active,
+ul.primary-links li a.active:hover {
+  background: #E0691A url(../images/bar.gif) repeat-x;
+}
+
+/**
+ * Search region
+ */
+#search-theme-form .search-form .form-submit {
+  background: #E0691A url(../images/submit.gif) no-repeat;
+}
