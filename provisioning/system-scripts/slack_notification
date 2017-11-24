@@ -1,0 +1,22 @@
+#!/bin/ksh93
+
+# Basically a simple wrapper around `slack_nagios.pl`, it used to do more
+# advanced stuff like queue stuff so we could poll stuff from history from other machines etc.
+
+slack_channel="$1"
+HOSTALIAS="$2"
+SERVICEDESC="$3"
+SERVICESTATE="$4"
+SERVICEOUTPUT="$5"
+
+# uncomment the following code if you still want to log all notifications to file
+#OUTPUT_FILE=/tmp/slack_queue.txt
+#if ! [[ -w $OUTPUT_FILE ]]; then
+#    print "cannot write to slack queue"
+#    exit 1
+#fi
+#printf "%s\t%s\t%s\t%s\t%s\n" "$slack_channel" "$HOSTALIAS" "$SERVICEDESC" "$SERVICESTATE" "$SERVICEOUTPUT" >> $OUTPUT_FILE
+
+# make the call to slack_nagios.pl
+/usr/bin/slack_nagios.pl -field slack_channel="${slack_channel}" -field HOSTALIAS="${HOSTALIAS}" -field SERVICEDESC="${SERVICEDESC}" -field SERVICESTATE="${SERVICESTATE}" -field SERVICEOUTPUT="${SERVICEOUTPUT}"
+
