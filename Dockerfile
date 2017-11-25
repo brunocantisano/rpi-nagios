@@ -120,24 +120,23 @@ RUN 	wget http://nagios-plugins.org/download/${nagiosplugins}.tar.gz && \
 	rm -rf /usr/local/src/${nagiosplugins}
 
 WORKDIR /usr/local/src/${ndoutilsversion}
-
-#RUN wget http://downloads.sourceforge.net/project/nagios/ndoutils-1.x/ndoutils-${ndoutilsversion}/ndoutils-${ndoutilsversion}.tar.gz    && \
-#    tar xzvf ndoutils-${ndoutilsversion}.tar.gz && \
-#    rm -rf /usr/local/src/ndoutils-${ndoutilsversion}.tar.gz && \
-#    cd ndoutils-${ndoutilsversion} && \
-#    bash -c "CFLAGS=-DDEBUG_NDO2DB \
-#    ./configure --prefix=/usr/local/nagios/ \
-#    --enable-mysql --disable-pgsql \
-#    --with-ndo2db-user=nagios \
-#    --with-ndo2db-group=nagios 2>&1 | tail -n 10" && \
-#    make 2>&1 | tail -n 10 && \
-#    cp src/ndomod-3x.o /usr/local/nagios/bin/ndomod.o && \
-#    cp src/ndo2db-3x /usr/local/nagios/bin/ndo2db && \
-#    cp src/log2ndo /usr/local/nagios/bin/ && \
-#    cp src/file2sock /usr/local/nagios/bin/ && \
-#    chmod 774 /usr/local/nagios/bin/ndo* && \
-#    chown nagios:nagios /usr/local/nagios/bin/ndo* && \
-#    rm -rf /usr/local/src/ndoutils-${ndoutilsversion}
+RUN wget http://downloads.sourceforge.net/project/nagios/ndoutils-1.x/ndoutils-${ndoutilsversion}/ndoutils-${ndoutilsversion}.tar.gz    && \
+    tar xzvf ndoutils-${ndoutilsversion}.tar.gz && \
+    rm -rf /usr/local/src/ndoutils-${ndoutilsversion}.tar.gz && \
+    cd ndoutils-${ndoutilsversion} && \
+    bash -c "CFLAGS=-DDEBUG_NDO2DB \
+    ./configure --prefix=/usr/local/nagios/ \
+    --enable-mysql --disable-pgsql \
+    --with-ndo2db-user=nagios \
+    --with-ndo2db-group=nagios 2>&1 | tail -n 10" && \
+    make 2>&1 | tail -n 10 && \
+    cp src/ndomod-3x.o /usr/local/nagios/bin/ndomod.o && \
+    cp src/ndo2db-3x /usr/local/nagios/bin/ndo2db && \
+    cp src/log2ndo /usr/local/nagios/bin/ && \
+    cp src/file2sock /usr/local/nagios/bin/ && \
+    chmod 774 /usr/local/nagios/bin/ndo* && \
+    chown nagios:nagios /usr/local/nagios/bin/ndo* && \
+    rm -rf /usr/local/src/ndoutils-${ndoutilsversion}
 
 RUN mkdir -p -m 0755 /usr/share/snmp/mibs && \
     touch /usr/share/snmp/mibs/.foo && \
@@ -211,6 +210,7 @@ COPY provisioning/nagios-plugins	/usr/local/nagios/libexec-custom
 COPY provisioning/index.php		/var/www/html/index.php
 ADD  provisioning/css                   /var/www/html/
 ADD  provisioning/images                /var/www/html/
+ADD  provisioning/js                    /var/www/html/
 COPY provisioning/nagvis-config		/usr/local/nagvis/etc
 COPY provisioning/nagvis-config/shapes	/usr/local/nagvis/share/userfiles/images/
 COPY provisioning/postfix.init          /etc/sv/postfix/run
