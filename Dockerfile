@@ -208,9 +208,9 @@ COPY provisioning/nagios-config		/usr/local/nagios/etc
 COPY provisioning/nagvis-config		/usr/local/nagvis/etc
 COPY provisioning/nagios-plugins	/usr/local/nagios/libexec-custom
 COPY provisioning/index.php		/var/www/html/index.php
-ADD  provisioning/css                   /var/www/html/
-ADD  provisioning/images                /var/www/html/
-ADD  provisioning/js                    /var/www/html/
+ADD  provisioning/css                   /var/www/html/css
+ADD  provisioning/images                /var/www/html/images
+ADD  provisioning/js                    /var/www/html/js
 COPY provisioning/nagvis-config		/usr/local/nagvis/etc
 COPY provisioning/nagvis-config/shapes	/usr/local/nagvis/share/userfiles/images/
 COPY provisioning/postfix.init          /etc/sv/postfix/run
