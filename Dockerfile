@@ -120,32 +120,41 @@ RUN 	wget http://nagios-plugins.org/download/${nagiosplugins}.tar.gz && \
 	rm -rf /usr/local/src/${nagiosplugins}
 
 WORKDIR /usr/local/src/${ndoutilsversion}
-RUN wget http://downloads.sourceforge.net/project/nagios/ndoutils-1.x/ndoutils-${ndoutilsversion}/ndoutils-${ndoutilsversion}.tar.gz    && \
-    tar xzvf ndoutils-${ndoutilsversion}.tar.gz && \
-    rm -rf /usr/local/src/ndoutils-${ndoutilsversion}.tar.gz && \
-    cd ndoutils-${ndoutilsversion} && \
-    bash -c "CFLAGS=-DDEBUG_NDO2DB \
-    ./configure --prefix=/usr/local/nagios/ \
-    --enable-mysql --disable-pgsql \
-    --with-ndo2db-user=nagios \
-    --with-ndo2db-group=nagios 2>&1 | tail -n 10" && \
-    make 2>&1 | tail -n 10 && \
-    cp src/ndomod-3x.o /usr/local/nagios/bin/ndomod.o && \
-    cp src/ndo2db-3x /usr/local/nagios/bin/ndo2db && \
-    cp src/log2ndo /usr/local/nagios/bin/ && \
-    cp src/file2sock /usr/local/nagios/bin/ && \
-    chmod 774 /usr/local/nagios/bin/ndo* && \
-    chown nagios:nagios /usr/local/nagios/bin/ndo* && \
-    rm -rf /usr/local/src/ndoutils-${ndoutilsversion}
+RUN     wget http://downloads.sourceforge.net/project/nagios/ndoutils-1.x/ndoutils-${ndoutilsversion}/ndoutils-${ndoutilsversion}.tar.gz \
+        && tar xzvf ndoutils-${ndoutilsversion}.tar.gz \
+        && rm -rf /usr/local/src/ndoutils-${ndoutilsversion}.tar.gz \
+        && cd ndoutils-${ndoutilsversion} \
+        && bash -c "CFLAGS=-DDEBUG_NDO2DB \
+        ./configure --prefix=/usr/local/nagios/ \
+        --enable-mysql --disable-pgsql \
+        --with-ndo2db-user=nagios \
+        --with-ndo2db-group=nagios 2>&1 | tail -n 10" \
+        && make 2>&1 | tail -n 10 \
+        && cp src/ndomod-3x.o /usr/local/nagios/bin/ndomod.o \
+        && cp src/ndo2db-3x /usr/local/nagios/bin/ndo2db \
+        && cp src/log2ndo /usr/local/nagios/bin/ \
+        && cp src/file2sock /usr/local/nagios/bin/ \
+        && chmod 774 /usr/local/nagios/bin/ndo* \
+        && chown nagios:nagios /usr/local/nagios/bin/ndo* \
+        && rm -rf /usr/local/src/ndoutils-${ndoutilsversion}
 
-RUN mkdir -p -m 0755 /usr/share/snmp/mibs && \
-    touch /usr/share/snmp/mibs/.foo && \
-    ln -s /usr/share/snmp/mibs /usr/local/nagios/libexec/mibs
+RUN mkdir -p -m 0755 /usr/share/snmp/mibs \
+    && touch /usr/share/snmp/mibs/.foo \
+    && ln -s /usr/share/snmp/mibs /usr/local/nagios/libexec/mibs
 
-RUN sed -i 's,/bin/mail,/usr/bin/mail,' /usr/local/nagios/etc/objects/commands.cfg && \
-    sed -i 's,/usr/usr,/usr,'           /usr/local/nagios/etc/objects/commands.cfg
+RUN sed -i 's,/bin/mail,/usr/bin/mail,' /usr/local/nagios/etc/objects/commands.cfg \
+    && sed -i 's,/usr/usr,/usr,'           /usr/local/nagios/etc/objects/commands.cfg
 
 RUN cp /etc/services /var/spool/postfix/etc/
+
+RUN cd /tmp \
+    && git clone https://github.com/multiplay/qstat.git \
+    && cd qstat \
+    && ./autogen.sh \
+    && ./configure \
+    && make \
+    && make install \
+    && make clean
 
 WORKDIR /usr/local/src/${nagvis}
 RUN	wget http://www.nagvis.org/share/${nagvis}.tar.gz	&& \
@@ -224,6 +233,14 @@ RUN \
 RUN cd /usr/local/nagios/libexec && \
 	wget https://raw.githubusercontent.com/c-kr/check_json/master/check_json.pl && \
 	chmod a+x check_json.pl
+
+#removing packages
+RUN apt-get purge --auto-remove gcc git rsync nano \
+    wget telnet make unzip \
+    build-essential git-buildpackage && \
+    apt-get clean && \
+    apt-get autoclean && \
+    rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 ADD entrypoint.sh /entrypoint.sh
 RUN chmod 755 /entrypoint.sh
