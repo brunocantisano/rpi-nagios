@@ -117,7 +117,6 @@ docker run -d --name nagios  \
   -v /path-to-nagios:/usr/local/nagios \
   -v /path-to-nagiosgraph:/usr/local/nagiosgraph \
   -v /path-to-nagvis:/usr/local/nagvis \
-  -v /path-to-snmp:/usr/share/snmp/mibs \
   -e centreonpage=0.0.0.0:9430 \
   -e dokuwikipage=0.0.0.0:9411 \
   -e mantisbtpage=0.0.0.0:9408 \
