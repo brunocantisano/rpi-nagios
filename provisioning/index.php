@@ -60,7 +60,7 @@
 			</div>
 			<div id="primary-links">
 				<ul class="primary-links">
-					<li class="menu-113 first"><a href="http:\/\/sourceforge.net/projects/fannagioscd" title="GitHub Project's">Project</a></li>
+					<li class="menu-113 first"><a href="http:\/\/github.com/brunocantisano/rpi-nagios" title="GitHub Project's"><img src="images/docker_paperinik_120x120.png" height="30"/></a></li>
 					<li class="menu-143"><a href="http:\/\/##MANTISBT##" title="Mantis Bug Tracker - login: ##LOGIN_MANTISBT##, password: ##PASSWORD_MANTISBT##"><img src="images/screenie_mantis.png" height="30"/></a></li>
 				</ul>
 			</div>
@@ -68,13 +68,13 @@
 				<div id="block-menu-primary-links" class="block block-menu">
 					<h2>Direct Links</h2>
 					<div class="content">
-						<ul class="menu">
-							<li class="leaf first"><a href="/nagios/" target="_blank">Nagios</a></li>
-							<li class="leaf first"><a href="http:\/\/##CENTREON##" target="_blank">Centreon</a></li>
-							<li class="leaf first"><a href="/nagvis/" target="_blank">NagVis</a></li>
-							<li class="leaf first"><a href="http:\/\/##DOKUWIKI##" target="_blank">Dokuwiki</a></li>
-							<li class="leaf first"><a href="/nagiosgraph/cgi-bin/show.cgi/" target="_blank">Nagios Graph</a></li>
-						</ul>
+						 <ul class="menu">
+								<li class="leaf first"><a href="/nagios/" title="site NAGIOS - login: nagiosadmin, password: admin" target="_blank">Nagios</a></li>
+                                <li class="leaf first"><a href="/nagvis/" title="site Nagvis - login: admin, password: admin" target="_blank">NagVis</a></li>
+                                <li class="leaf first"><a href="/nagiosgraph/cgi-bin/show.cgi/" target="_blank">Nagios Graph</a></li>
+                                <li class="leaf first"><a href="http:\/\/##CENTREON##" title="site CENTREON - login: ##LOGIN_CENTREON##, password: ##PASSWORD_CENTREON##" target="_blank">Centreon</a></li>
+                                <li class="leaf first"><a href="http:\/\/##DOKUWIKI##" title="site Doku Wiki - login: ##LOGIN_DOKUWIKI##, password: ##PASSWORD_DOKUWIKI##" target="_blank">Dokuwiki</a></li>
+                        </ul>
 					</div>
 				</div>
 			</div>
@@ -83,11 +83,11 @@
 					<div id="breadcrumb"></div>
 					<div class="node" <h2="">Software provided
 						<div class="content" here="" is="" the="" list="" of="" tools="" provided="" by="" fan:="" <ol="">
-							<li><a id="nagios_toggle" href="#">Nagios: Core monitoring application</a><div style="margin: 0px; position: static; overflow: hidden; height: auto;"><div id="nagios" style="margin: 0px;"><a href="/nagios/" target="_blank"><img src="images/screenie_nagios.png"></a></div></div></li>
-							<li><a id="centreon_toggle" href="#">Centreon: web frontend for Nagios</a><div style="margin: 0px; position: static; overflow: hidden; height: auto;"><div id="centreon" style="margin: 0px;"><a href="http:\/\/##CENTREON##" target="_blank"><img src="images/screenie_centreon.png"></a></div></div></li>
+							<li><a id="nagios_toggle" href="#">Nagios: Core monitoring application</a><div style="margin: 0px; position: static; overflow: hidden; height: auto;"><div id="nagios" style="margin: 0px;"><a href="/nagios/" target="_blank"><img src="images/screenie_nagios.png"></a></div></div></li>							
 							<li><a id="nagvis_toggle" href="#">NagVis : a great tools for configuring maps</a><div style="margin: 0px; position: static; overflow: hidden; height: auto;"><div id="nagvis" style="margin: 0px;"><a href="/nagvis/" target="_blank"><img src="images/screenie_nagvis.png"></a></div></div></li>
-							<li><a id="dokuwiki_toggle" href="#">Dokuwiki : online wiki</a><div style="margin: 0px; position: static; overflow: hidden; height: auto;"><div id="dokuwiki" style="margin: 0px;"><a href="http:\/\/##DOKUWIKI##" target="_blank"><img src="images/screenie_dokuwiki.png"></a></div></div></li>
 							<li><a id="nagiosgraph_toggle" href="#">Nagios Graph : Parses output and performance data from Nagios plugins, and stores the data in RRD files.</a><div style="margin: 0px; position: static; overflow: hidden; height: auto;"><div id="nagiosgraph" style="margin: 0px;"><a href="/nagiosgraph/cgi-bin/show.cgi/" target="_blank"><img src="images/screenie_nagiosgraph.png"></a></div></div></li>
+							<li><a id="centreon_toggle" href="#">Centreon: web frontend for Nagios</a><div style="margin: 0px; position: static; overflow: hidden; height: auto;"><div id="centreon" style="margin: 0px;"><a href="http:\/\/##CENTREON##" target="_blank"><img src="images/screenie_centreon.png"></a></div></div></li>
+							<li><a id="dokuwiki_toggle" href="#">Dokuwiki : online wiki</a><div style="margin: 0px; position: static; overflow: hidden; height: auto;"><div id="dokuwiki" style="margin: 0px;"><a href="http:\/\/##DOKUWIKI##" target="_blank"><img src="images/screenie_dokuwiki.png"></a></div></div></li>							
 							<li>Official Nagios plugins : plugins to monitor servers</li>
 							<li>Contrib Nagios plugins : plugins offer by Nagios community</li>
 							<li>NDOUtils : Nagios module to store monitoring data in MySQL</li>
