@@ -120,6 +120,12 @@ docker run -d --name nagios  \
   -e centreonpage=0.0.0.0:9430 \
   -e dokuwikipage=0.0.0.0:9411 \
   -e mantisbtpage=0.0.0.0:9408 \
+  -e centreonlogin=admin \
+  -e centreonpassword=admin \
+  -e dokuwikilogin=admin \
+  -e dokuwikipassword=admin \
+  -e mantisbtlogin=admin \
+  -e mantisbtpassword=admin \  
   -p 9404:80 \
   -p 9405:5666 \
   paperinik/rpi-nagios
