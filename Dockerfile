@@ -247,7 +247,7 @@ RUN chmod 755 /entrypoint.sh
 
 EXPOSE 80 5666
 
-VOLUME /usr/local/nagios/ /usr/local/nagiosgraph /usr/local/nagvis /usr/share/snmp/mibs
+VOLUME /usr/local/nagios/ /usr/local/nagiosgraph /usr/local/nagvis
 
 ENTRYPOINT ["/entrypoint.sh"]
 
