@@ -115,9 +115,10 @@ alternatively you can use external Nagios configuration & log data with the foll
 
 ```bash
 docker run -d --name nagios  \
-  -v /path-to-nagios:/usr/local/nagios \
-  -v /path-to-nagiosgraph:/usr/local/nagiosgraph \
-  -v /path-to-nagvis:/usr/local/nagvis \
+  -v /home/pi/docker_path/nagios/nagios:/usr/local/nagios \
+  -v /home/pi/docker_path/nagios/nagiosgraph:/usr/local/nagiosgraph \
+  -v /home/pi/docker_path/nagios/nagvis:/usr/local/nagvis \
+  -v /home/pi/docker_path/nagios/mibs:/usr/share/snmp/mibs \
   -e centreonpage=0.0.0.0:9430 \
   -e dokuwikipage=0.0.0.0:9411 \
   -e mantisbtpage=0.0.0.0:9408 \
@@ -126,7 +127,7 @@ docker run -d --name nagios  \
   -e dokuwikilogin=admin \
   -e dokuwikipassword=admin \
   -e mantisbtlogin=admin \
-  -e mantisbtpassword=admin \  
+  -e mantisbtpassword=admin \
   -p 9404:80 \
   -p 9405:5666 \
   paperinik/rpi-nagios
@@ -140,7 +141,18 @@ The default credentials for the web interface is `nagiosadmin` / `nagios`
 
 #### Shell
 
+```bash
 sudo docker exec -it paperinik/rpi-nagios bash
+```
+
+#### Copy Nagios files from docker container (folder: /path-to-nagios-folder MUST BE root:root BEFORE COPY!!!!!)
+
+```bash
+docker cp nagios:/usr/local/nagios/ /path-to-nagios-folder
+docker cp nagios:/usr/local/nagiosgraph/ /path-to-nagios-folder
+docker cp nagios:/usr/local/nagvis/ /path-to-nagios-folder
+docker cp nagios:/usr/share/snmp/mibs /path-to-nagios-folder
+```
 
 ### Extra Plugins
 
