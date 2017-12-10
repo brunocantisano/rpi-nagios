@@ -14,6 +14,7 @@ This Docker container implements a Nagios Monitor, Nagvis and Nagiosgraph. Origi
 | NDO Utils        | 1.5.2     |
 | Livestatus       | 1.2.6p16  |
 | Nagvis           | 1.8.5     |
+| Nuvola Theme     | 1.0.3     |
 
  * Raspbian base image: resin/rpi-raspbian.
  
@@ -148,4 +149,6 @@ sudo docker exec -it paperinik/rpi-nagios bash
 * JR-Nagios-Plugins -  custom plugins I've created [https://github.com/JasonRivers/nagios-plugins]
 * WL-Nagios-Plugins -  custom plugins from William Leibzon [https://github.com/willixix/WL-NagiosPlugins]
 * JE-Nagios-Plugins -  custom plugins from Justin Ellison [https://github.com/justintime/nagios-plugins]
-* Nagios-Nuvola Theme -  custom theme [ftp://ftp.vim.org/vol/4/smeserver/contribs/michaelw/sme7/Nagios3/packages/nagios-nuvola-1.0.3.tar.gz]
+* Nagios-Nuvola Theme -  custom theme
+- [https://exchange.nagios.org/directory/Addons/Frontends-%28GUIs-and-CLIs%29/Web-Interfaces/Themes-and-Skins/Nuvola-Style/details]
+- [ftp://ftp.vim.org/vol/4/smeserver/contribs/michaelw/sme7/Nagios3/packages/nagios-nuvola-1.0.3.tar.gz]
