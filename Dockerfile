@@ -9,38 +9,60 @@ ENV	nagiosplugins=nagios-plugins-2.1.1
 ENV	nagvis=nagvis-1.8.5
 ENV	nagiosgraphversion=1.5.2
 ENV	nrpeversion=nrpe-2.15
-ENV     ndoutilsversion=1.5.2
-ENV     centreonpage=0.0.0.0:9430
-ENV     dokuwikipage=0.0.0.0:9411
-ENV     mantisbtpage=0.0.0.0:9408
-ENV     centreonlogin=admin
-ENV     centreonpassword=admin
-ENV     dokuwikilogin=admin
-ENV     dokuwikipassword=admin
-ENV     mantisbtlogin=admin
-ENV     mantisbtpassword=admin
+ENV ndoutilsversion=1.5.2
+ENV centreonpage=0.0.0.0:9401
+ENV dokuwikipage=0.0.0.0:9402
+ENV mantisbtpage=0.0.0.0:9403
+ENV sonarpage=0.0.0.0:9404
+ENV svnpage=0.0.0.0:9405
+ENV ftppage=0.0.0.0:9406
+ENV jenkinspage=0.0.0.0:9407
+ENV nexuspage=0.0.0.0:9408
+ENV utilspage=0.0.0.0:9409
+ENV centreonlogin=admin
+ENV centreonpassword=admin
+ENV dokuwikilogin=admin
+ENV dokuwikipassword=admin
+ENV mantisbtlogin=admin
+ENV mantisbtpassword=admin
+ENV sonarlogin=admin
+ENV sonarpassword=admin
+ENV svnlogin=admin
+ENV svnpassword=admin
+ENV ftplogin=admin
+ENV ftppassword=admin
+ENV jenkinslogin=admin
+ENV jenkinspassword=admin
+ENV nexuslogin=admin
+ENV nexuspassword=admin
+ENV utilslogin=admin
+ENV utilspassword=admin
+ENV nagioslogin=nagiosadmin
+ENV nagiospassword=admin
+ENV nagvislogin=admin
+ENV nagvispassword=admin
 
 RUN apt-get update && \
      apt-get install -y --no-install-recommends \
 		gcc	\
 		apache2 \
-		php5 	\
-	       	php5-gd \
-	       	php5-sqlite	\
-	       	apache2-utils 	\
-		xinetd 		\
+		php5 \
+	    php5-gd \
+	    php5-sqlite	\
+	    apache2-utils \
+		xinetd \
 		supervisor \
 		git \
 		rsync \
 		nano \
 		wget \
 		postfix \
-                telnet \
+        telnet \
 		make \
 		unzip \
-		openssl    			   \
-		libssl-dev  			   \
-		ca-certificates			   \
+		openssl \
+		libssl-dev \
+		ca-certificates	\
 		libcgi-pm-perl \
 		librrds-perl \
 		libgd-gd2-perl \
