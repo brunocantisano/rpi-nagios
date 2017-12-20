@@ -118,16 +118,18 @@ docker run -d --name nagios  \
   -v /home/pi/docker_path/nagios/nagios:/usr/local/nagios \
   -v /home/pi/docker_path/nagios/nagiosgraph:/usr/local/nagiosgraph \
   -v /home/pi/docker_path/nagios/nagvis:/usr/local/nagvis \
-  -v /home/pi/docker_path/nagios/mibs:/usr/share/snmp/mibs \
-  -e centreonpage=0.0.0.0:9401 \  
+  -e portainerpage=0.0.0.0:9400 \
+  -e centreonpage=0.0.0.0:9401 \
   -e mantisbtpage=0.0.0.0:9402 \
-  -e sonarpage=0.0.0.0:9403 \  
+  -e sonarpage=0.0.0.0:9403 \
   -e svnpage=0.0.0.0:9404 \
-  -e ftppage=0.0.0.0:9405 \  
+  -e ftppage=0.0.0.0:9405 \
   -e jenkinspage=0.0.0.0:9406 \
-  -e nexuspage=0.0.0.0:9407 \  
+  -e nexuspage=0.0.0.0:9407 \
   -e utilspage=0.0.0.0:9408 \
   -e dokuwikipage=0.0.0.0:9409 \
+  -e portainerlogin=admin \
+  -e portainerpassword=admin \
   -e centreonlogin=admin \
   -e centreonpassword=admin \
   -e mantisbtlogin=admin \
@@ -150,7 +152,7 @@ docker run -d --name nagios  \
   -e nagiospassword=admin \
   -e nagvislogin=admin \
   -e nagvispassword=admin \  
-  -p 9410:80 \
+  -p 80:80 \
   -p 9411:5666 \
   paperinik/rpi-nagios
 ```
@@ -180,9 +182,9 @@ docker cp nagios:/usr/share/snmp/mibs /path-to-nagios-folder
 
 * Nagios nrpe [http://exchange.nagios.org/directory/Addons/Monitoring-Agents/NRPE--2D-Nagios-Remote-Plugin-Executor/details]
 * Nagiosgraph [http://exchange.nagios.org/directory/Addons/Graphing-and-Trending/nagiosgraph/details]
-* JR-Nagios-Plugins -  custom plugins I've created [https://github.com/JasonRivers/nagios-plugins]
-* WL-Nagios-Plugins -  custom plugins from William Leibzon [https://github.com/willixix/WL-NagiosPlugins]
-* JE-Nagios-Plugins -  custom plugins from Justin Ellison [https://github.com/justintime/nagios-plugins]
-* Nagios-Nuvola Theme -  custom theme
+* JR-Nagios-Plugins - custom plugins I've created [https://github.com/JasonRivers/nagios-plugins]
+* WL-Nagios-Plugins - custom plugins from William Leibzon [https://github.com/willixix/WL-NagiosPlugins]
+* JE-Nagios-Plugins - custom plugins from Justin Ellison [https://github.com/justintime/nagios-plugins]
+* Nagios-Nuvola Theme - custom theme
 - [https://exchange.nagios.org/directory/Addons/Frontends-%28GUIs-and-CLIs%29/Web-Interfaces/Themes-and-Skins/Nuvola-Style/details]
 - [ftp://ftp.vim.org/vol/4/smeserver/contribs/michaelw/sme7/Nagios3/packages/nagios-nuvola-1.0.3.tar.gz]

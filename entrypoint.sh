@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 set -e
 
@@ -7,41 +7,45 @@ NAGVIS_ETC=/usr/local/nagvis/etc
 NAGVIS_SHARE=/usr/local/nagvis/share
 CONFIG=1
 
+PORTAINERPAGE=${portainerpage:-0.0.0.0:9400}
+LOGIN_PORTAINER=${portainerlogin:-admin}
+PASSWORD_PORTAINER=${portainerpassword:-admin}
+
 CENTREONPAGE=${centreonpage:-0.0.0.0:9401}
 LOGIN_CENTREON=${centreonlogin:-admin}
 PASSWORD_CENTREON=${centreonpassword:-admin}
 
-DOKUWIKIPAGE=${dokuwikipage:-0.0.0.0:9402}
-LOGIN_DOKUWIKI=${dokuwikilogin:-admin}
-PASSWORD_DOKUWIKI=${dokuwikipassword:-admin}
-
-MANTISBTPAGE=${mantisbtpage:-0.0.0.0:9403}
+MANTISBTPAGE=${mantisbtpage:-0.0.0.0:9402}
 LOGIN_MANTISBT=${mantisbtlogin:-admin}
 PASSWORD_MANTISBT=${mantisbtpassword:-admin}
 
-SONARPAGE=${sonarpage:-0.0.0.0:9404}
+SONARPAGE=${sonarpage:-0.0.0.0:9403}
 LOGIN_SONAR=${sonarlogin:-admin}
 PASSWORD_SONAR=${sonarpassword:-admin}
 
-SVNPAGE=${svnpage:-0.0.0.0:9405}
+SVNPAGE=${svnpage:-0.0.0.0:9404}
 LOGIN_SVN=${svnlogin:-admin}
 PASSWORD_SVN=${svnpassword:-admin}
 
-FTPPAGE=${ftppage:-0.0.0.0:9406}
+FTPPAGE=${ftppage:-0.0.0.0:9405}
 LOGIN_FTP=${ftplogin:-admin}
 PASSWORD_FTP=${ftppassword:-admin}
 
-JENKINSPAGE=${jenkinspage:-0.0.0.0:9407}
+JENKINSPAGE=${jenkinspage:-0.0.0.0:9406}
 LOGIN_JENKINS=${jenkinslogin:-admin}
 PASSWORD_JENKINS=${jenkinspassword:-admin}
 
-NEXUSPAGE=${nexuspage:-0.0.0.0:9408}
+NEXUSPAGE=${nexuspage:-0.0.0.0:9407}
 LOGIN_NEXUS=${nexuslogin:-admin}
 PASSWORD_NEXUS=${nexuspassword:-admin}
 
-UTILSPAGE=${utilspage:-0.0.0.0:9409}
+UTILSPAGE=${utilspage:-0.0.0.0:9408}
 LOGIN_UTILS=${utilslogin:-admin}
 PASSWORD_UTILS=${utilspassword:-admin}
+
+DOKUWIKIPAGE=${dokuwikipage:-0.0.0.0:9409}
+LOGIN_DOKUWIKI=${dokuwikilogin:-admin}
+PASSWORD_DOKUWIKI=${dokuwikipassword:-admin}
 
 LOGIN_NAGIOS=${nagioslogin:-nagiosadmin}
 PASSWORD_NAGIOS=${nagiospassword:-admin}
@@ -49,14 +53,14 @@ PASSWORD_NAGIOS=${nagiospassword:-admin}
 LOGIN_NAGVIS=${nagvislogin:-admin}
 PASSWORD_NAGVIS=${nagvispassword:-admin}
 
-# Configure index.php to link centreon and dokuwiki
+# Configure index.php to link
+sed -i 's|##PORTAINER##|'"${PORTAINERPAGE}"'|g' /var/www/html/index.php
+sed -i 's|##LOGIN_PORTAINER##|'"${LOGIN_PORTAINER}"'|g' /var/www/html/index.php
+sed -i 's|##PASSWORD_PORTAINER##|'"${PASSWORD_PORTAINER}"'|g' /var/www/html/index.php
+
 sed -i 's|##CENTREON##|'"${CENTREONPAGE}"'|g' /var/www/html/index.php
 sed -i 's|##LOGIN_CENTREON##|'"${LOGIN_CENTREON}"'|g' /var/www/html/index.php
 sed -i 's|##PASSWORD_CENTREON##|'"${PASSWORD_CENTREON}"'|g' /var/www/html/index.php
-
-sed -i 's|##DOKUWIKI##|'"${DOKUWIKIPAGE}"'|g' /var/www/html/index.php
-sed -i 's|##LOGIN_DOKUWIKI##|'"${LOGIN_DOKUWIKI}"'|g' /var/www/html/index.php
-sed -i 's|##PASSWORD_DOKUWIKI##|'"${PASSWORD_DOKUWIKI}"'|g' /var/www/html/index.php
 
 sed -i 's|##MANTISBT##|'"${MANTISBTPAGE}"'|g' /var/www/html/index.php
 sed -i 's|##LOGIN_MANTISBT##|'"${LOGIN_MANTISBT}"'|g' /var/www/html/index.php
@@ -86,12 +90,16 @@ sed -i 's|##UTILS##|'"${UTILSPAGE}"'|g' /var/www/html/index.php
 sed -i 's|##LOGIN_UTILS##|'"${LOGIN_UTILS}"'|g' /var/www/html/index.php
 sed -i 's|##PASSWORD_UTILS##|'"${PASSWORD_UTILS}"'|g' /var/www/html/index.php
 
+sed -i 's|##DOKUWIKI##|'"${DOKUWIKIPAGE}"'|g' /var/www/html/index.php
+sed -i 's|##LOGIN_DOKUWIKI##|'"${LOGIN_DOKUWIKI}"'|g' /var/www/html/index.php
+sed -i 's|##PASSWORD_DOKUWIKI##|'"${PASSWORD_DOKUWIKI}"'|g' /var/www/html/index.php
+
 sed -i 's|##LOGIN_NAGIOS##|'"${LOGIN_NAGIOS}"'|g' /var/www/html/index.php
 sed -i 's|##PASSWORD_NAGIOS##|'"${PASSWORD_NAGIOS}"'|g' /var/www/html/index.php
 
 sed -i 's|##LOGIN_NAGVIS##|'"${LOGIN_NAGVIS}"'|g' /var/www/html/index.php
 sed -i 's|##PASSWORD_NAGVIS##|'"${PASSWORD_NAGVIS}"'|g' /var/www/html/index.php
-													
+
 # check for required vars
 if [[ -z "$CONFIG_REPO" ]]; then
     echo -n >&2 "Warning: no configuration repository is set "
