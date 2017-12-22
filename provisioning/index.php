@@ -67,7 +67,7 @@
 					<li class="menu-143"><a href="http:\/\/##NEXUS##" title="Repositório de artefatos Nexus - login: ##LOGIN_NEXUS##, password: ##PASSWORD_NEXUS##"><img src="images/logo-nexus.png" height="30"/></a></li>
 					<li class="menu-143"><a href="http:\/\/##MANTISBT##" title="Mantis Bug Tracker - login: ##LOGIN_MANTISBT##, password: ##PASSWORD_MANTISBT##"><img src="images/logo-mantis.png" height="30"/></a></li>
 					<li class="menu-143"><a href="http:\/\/##UTILS##" title="Utils - login: ##LOGIN_UTILS##, password: ##PASSWORD_UTILS##"><img src="images/logo-utils.png" height="30"/></a></li>
-					<li class="menu-143"><a href="http:\/\/##FTP##" title="FTP - login: ##LOGIN_FTP##, password: ##PASSWORD_FTP##"><img src="images/logo-vsftpd.png" height="30"/></a></li>
+					<li class="menu-143"><a href="ftp:\/\/##FTP##" title="FTP - login: ##LOGIN_FTP##, password: ##PASSWORD_FTP##"><img src="images/logo-vsftpd.png" height="30"/></a></li>
 				</ul>
 			</div>
 			<div id="sidebar-left" class="sidebar">
