@@ -13,11 +13,11 @@ docker run -d --name nagios  \
   -e mantisbtpage=0.0.0.0:9402 \
   -e sonarpage=0.0.0.0:9403 \
   -e svnpage=0.0.0.0:9404 \
-  -e ftppage=0.0.0.0:9405 \
-  -e jenkinspage=0.0.0.0:9406 \
-  -e nexuspage=0.0.0.0:9407 \
-  -e utilspage=0.0.0.0:9408 \
-  -e dokuwikipage=0.0.0.0:9409 \
+  -e jenkinspage=0.0.0.0:9405 \
+  -e nexuspage=0.0.0.0:9406 \
+  -e utilspage=0.0.0.0:9407 \
+  -e dokuwikipage=0.0.0.0:9408 \
+  -e ftppage=0.0.0.0:9410 \
   -e portainerlogin=admin \
   -e portainerpassword=admin \
   -e centreonlogin=admin \
@@ -28,8 +28,8 @@ docker run -d --name nagios  \
   -e sonarpassword=admin \
   -e svnlogin=admin \
   -e svnpassword=admin \
-  -e ftplogin=admin \
-  -e ftppassword=admin \
+  -e ftplogin=bruno \
+  -e ftppassword=bruno123 \
   -e jenkinslogin=admin \
   -e jenkinspassword=admin \
   -e nexuslogin=admin \
@@ -43,5 +43,5 @@ docker run -d --name nagios  \
   -e nagvislogin=admin \
   -e nagvispassword=admin \  
   -p 80:80 \
-  -p 9411:5666 \
+  -p 9409:5666 \
   paperinik/rpi-nagios
