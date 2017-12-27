@@ -60,14 +60,14 @@
 			</div>
 			<div id="primary-links">
 				<ul class="primary-links">
-                    <li class="menu-113 first"><a href="http:\/\/##PORTAINER##" title="Portainer - login: ##LOGIN_PORTAINER##, password: ##PASSWORD_PORTAINER##"><img src="images/logo-portainer.png" height="30"/></a></li>
-					<li class="menu-113"><a href="http:\/\/##SONAR##" title="Sonarqube - login: ##LOGIN_SONAR##, password: ##PASSWORD_SONAR##"><img src="images/logo-sonarqube.png" height="30"/></a></li>
-					<li class="menu-143"><a href="http:\/\/##SVN##" title="Repositório SVN - login: ##LOGIN_SVN##, password: ##PASSWORD_SVN##"><img src="images/logo-svn.png" height="30"/></a></li>
-					<li class="menu-143"><a href="http:\/\/##JENKINS##" title="Jenkins CI - login: ##LOGIN_JENKINS##, password: ##PASSWORD_JENKINS##"><img src="images/logo-jenkins.png" height="30"/></a></li>
-					<li class="menu-143"><a href="http:\/\/##NEXUS##" title="Repositório de artefatos Nexus - login: ##LOGIN_NEXUS##, password: ##PASSWORD_NEXUS##"><img src="images/logo-nexus.png" height="30"/></a></li>
-					<li class="menu-143"><a href="http:\/\/##MANTISBT##" title="Mantis Bug Tracker - login: ##LOGIN_MANTISBT##, password: ##PASSWORD_MANTISBT##"><img src="images/logo-mantis.png" height="30"/></a></li>
-					<li class="menu-143"><a href="http:\/\/##UTILS##" title="Utils - login: ##LOGIN_UTILS##, password: ##PASSWORD_UTILS##"><img src="images/logo-utils.png" height="30"/></a></li>
-					<li class="menu-143"><a href="ftp:\/\/##FTP##" title="FTP - login: ##LOGIN_FTP##, password: ##PASSWORD_FTP##"><img src="images/logo-vsftpd.png" height="30"/></a></li>
+                    <li class="menu-113 first"><a href="http:\/\/##PORTAINER##" title="Portainer - login: ##LOGIN_PORTAINER##, password: ##PASSWORD_PORTAINER##" target="_blank"><img src="images/logo-portainer.png" height="30"/></a></li>
+					<li class="menu-113"><a href="http:\/\/##SONAR##" title="Sonarqube - login: ##LOGIN_SONAR##, password: ##PASSWORD_SONAR##" target="_blank"><img src="images/logo-sonarqube.png" height="30"/></a></li>
+					<li class="menu-143"><a href="http:\/\/##SVN##" title="Repositório SVN - login: ##LOGIN_SVN##, password: ##PASSWORD_SVN##" target="_blank"><img src="images/logo-svn.png" height="30"/></a></li>
+					<li class="menu-143"><a href="http:\/\/##JENKINS##" title="Jenkins CI - login: ##LOGIN_JENKINS##, password: ##PASSWORD_JENKINS##" target="_blank"><img src="images/logo-jenkins.png" height="30"/></a></li>
+					<li class="menu-143"><a href="http:\/\/##NEXUS##" title="Repositório de artefatos Nexus - login: ##LOGIN_NEXUS##, password: ##PASSWORD_NEXUS##" target="_blank"><img src="images/logo-nexus.png" height="30"/></a></li>
+					<li class="menu-143"><a href="http:\/\/##MANTISBT##" title="Mantis Bug Tracker - login: ##LOGIN_MANTISBT##, password: ##PASSWORD_MANTISBT##" target="_blank"><img src="images/logo-mantis.png" height="30"/></a></li>
+					<li class="menu-143"><a href="http:\/\/##UTILS##" title="Utils - login: ##LOGIN_UTILS##, password: ##PASSWORD_UTILS##" target="_blank"><img src="images/logo-utils.png" height="30"/></a></li>
+					<li class="menu-143"><a href="ftp:\/\/##FTP##" title="FTP - login: ##LOGIN_FTP##, password: ##PASSWORD_FTP##" target="_blank"><img src="images/logo-vsftpd.png" height="30"/></a></li>
 				</ul>
 			</div>
 			<div id="sidebar-left" class="sidebar">
